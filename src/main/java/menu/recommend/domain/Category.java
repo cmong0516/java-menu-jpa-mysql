@@ -7,8 +7,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Getter
+@NoArgsConstructor
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,9 +21,9 @@ public class Category {
     private String name;
 
     @OneToMany(mappedBy = "category")
-    private List<Menu> menus = new ArrayList<>();
+    List<Menu> menus = new ArrayList<>();
 
-    public Category() {
-
+    public Category(String name) {
+        this.name = name;
     }
 }
