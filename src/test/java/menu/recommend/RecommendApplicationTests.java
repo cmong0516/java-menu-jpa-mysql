@@ -1,5 +1,6 @@
 package menu.recommend;
 
+import java.time.LocalDate;
 import menu.recommend.domain.Category;
 import menu.recommend.domain.Menu;
 import org.assertj.core.api.Assertions;
@@ -27,4 +28,5 @@ class RecommendApplicationTests {
 		Assertions.assertThat(c1.getMenus().contains(m1)).isEqualTo(true);
 		Assertions.assertThat(c1.getMenus().contains(m2)).isEqualTo(true);
 	}
+
 }

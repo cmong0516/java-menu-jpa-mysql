@@ -39,7 +39,6 @@ public class InitService {
                 m1.changeCategory(category);
                 menuRepository.save(m1);
             }
-
         }
 
     }
