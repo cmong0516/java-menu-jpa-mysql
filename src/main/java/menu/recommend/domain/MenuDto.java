@@ -10,6 +10,8 @@ public class MenuDto {
     private String menuName;
     private String categoryName;
 
+
+    @QueryProjection
     public MenuDto(String menuName, String categoryName) {
         this.menuName = menuName;
         this.categoryName = categoryName;

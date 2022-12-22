@@ -1,32 +1,28 @@
 package menu.recommend;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.time.LocalDate;
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import menu.recommend.domain.Category;
 import menu.recommend.domain.Menu;
+import menu.recommend.domain.QMenu;
+import menu.recommend.repository.CategoryRepository;
+import menu.recommend.repository.MenuRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
 @SpringBootTest
 class RecommendApplicationTests {
+	
+	@PersistenceContext
+	EntityManager em;
 
-	@Test
-	void contextLoads() {
-	}
 
-
-	@Test
-	void CategoryTest() {
-		Menu m1 = new Menu("짜장면");
-		Menu m2 = new Menu("짬뽕");
-		Category c1 = new Category("중식");
-
-		m1.changeCategory(c1);
-		m2.changeCategory(c1);
-
-		Assertions.assertThat(c1.getMenus().size()).isEqualTo(2);
-		Assertions.assertThat(c1.getMenus().contains(m1)).isEqualTo(true);
-		Assertions.assertThat(c1.getMenus().contains(m2)).isEqualTo(true);
-	}
 
 }
